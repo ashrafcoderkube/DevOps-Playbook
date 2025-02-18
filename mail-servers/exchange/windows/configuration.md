@@ -47,7 +47,7 @@ Get-Service *exchange*
 ```
 
 
-### **Configuration**
+## **Configuration**
 
 ### **1. Configure the Exchange Server**
 Once installed, you can configure the Exchange Server settings using the Exchange Admin Center (EAC) or PowerShell.
