@@ -1,24 +1,24 @@
-### Exim Server Commands for Ubuntu
+### Exim Server Commands for macOS
 
 - **Start Exim:**
   ```shell
-  sudo systemctl start exim
+  sudo brew services start exim
   ```
 - **Stop Exim:**
   ```shell
-  sudo systemctl stop exim
+  sudo brew services stop exim
   ```
 - **Restart Exim:**
   ```shell
-  sudo systemctl restart exim
+  sudo brew services restart exim
   ```
 - **Reload Configuration:**
   ```shell
-  sudo systemctl reload exim
+  sudo kill -HUP $(pgrep exim)
   ```
 - **Check Status:**
   ```shell
-  sudo systemctl status exim
+  sudo brew services list | grep exim
   ```
 - **Test Configuration:**
   ```shell
@@ -46,13 +46,14 @@
   ```
 - **Edit Main Configuration File:**
   ```shell
-  sudo nano /etc/exim/exim.conf
+  sudo nano /usr/local/etc/exim/exim.conf
   ```
 - **Edit Master Configuration File:**
   ```shell
-  sudo nano /etc/exim/exim4.conf.template
+  sudo nano /usr/local/etc/exim/exim4.conf.template
   ```
 - **Restart exim After Configuration Change:**
   ```shell
-  sudo systemctl restart exim
+  sudo brew services restart exim
   ```
+  

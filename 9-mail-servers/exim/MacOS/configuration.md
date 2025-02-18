@@ -1,20 +1,16 @@
-### Exim Configuration on Ubuntu
+### Exim Configuration on macOS
 
 #### Prerequisites
-1. Ensure you have administrative privileges on your Ubuntu machine.
-2. Install Exim using the package manager:
+1. Ensure you have administrative privileges on your macOS machine.
+2. Install Exim using Homebrew:
      ```shell
-     sudo apt update
-    sudo apt install exim4
-
+     brew install exim
      ```
 
-### Exim Configuration Directory
-Exim stores its configuration files in `/etc/exim4`.
-
-Basic Configuration File (`exim4.conf`)
-
-Here’s a sample of what your `exim4.conf` might look like:
+#### Exim Configuration Directory
+Exim stores its configuration files in `/usr/local/etc/exim`.
+Basic Configuration File (`exim.conf`)
+Here’s a sample of what your `exim.conf` might look like:
 
 ```ini
 # Network settings
@@ -36,12 +32,12 @@ acl_check_rcpt = acl_check_rcpt_local
 
 # TLS encryption settings
 tls_on_connect_ports = 465
-tls_certificate = /etc/ssl/certs/exim.pem
-tls_privatekey = /etc/ssl/private/exim.key
+tls_certificate = /usr/local/etc/ssl/certs/exim.pem
+tls_privatekey = /usr/local/etc/ssl/private/exim.key
 tls_require_ciphers = HIGH
 
 # Logging
-log_file_path = /var/log/exim4/mainlog
+log_file_path = /usr/local/var/log/exim/mainlog
 log_selector = +all
 ``` 
 
@@ -49,28 +45,27 @@ log_selector = +all
 
 - **Start Exim:**
   ```shell
-  sudo systemctl start exim
+  sudo brew services start exim
   ```
 - **Stop Exim:**
   ```shell
-  sudo systemctl stop exim
+  sudo brew services stop exim
   ```
 - **Restart Exim:**
   ```shell
-  sudo systemctl restart exim
+  sudo brew services restart exim
   ```
 - **Reload Configuration:**
   ```shell
-  sudo systemctl reload exim
+  sudo kill -HUP $(pgrep exim)
   ```
 - **Check Exim:**
   ```shell
-  sudo systemctl status exim
+  sudo brew services list | grep exim
   ```
 
 #### Virtual Alias Configuration (`virtual`)
-Exim stores virtual alias mappings in `/etc/exim4/virtual`.
-
+Exim stores virtual alias mappings in `/usr/local/etc/exim/virtual`.
 ```ini
 # Virtual alias mappings
 admin@example.com    user1
@@ -84,14 +79,14 @@ Run the following command to update the virtual alias database:
 sudo exim -bV
 ```
 
-#### Enabling SSL (`exim4.conf`)
+#### Enabling SSL (`exim.conf`)
 
-Modify `/etc/exim4/exim4.conf` to enable TLS support:
+Modify `/usr/local/etc/exim/exim.conf` to enable TLS support:
 
 ```ini
 # Enable TLS encryption
-tls_certificate = /etc/ssl/certs/exim.pem
-tls_privatekey = /etc/ssl/private/exim.key
+tls_certificate = /usr/local/etc/ssl/certs/exim.pem
+tls_privatekey = /usr/local/etc/ssl/private/exim.key
 tls_require_ciphers = HIGH
 ```
 
@@ -99,11 +94,11 @@ tls_require_ciphers = HIGH
 
 - **View Mail Logs:**
   ```shell
-  sudo tail -f /var/log/exim4/mainlog
+  sudo tail -f /usr/local/var/log/exim/mainlog
   ```
 - **View Authentication Logs:**
   ```shell
-  sudo tail -f /var/log/exim4/rejectlog
+  sudo tail -f /usr/local/var/log/exim/rejectlog
   ```
 
-This configuration should help you set up Exim on a Ubuntu environment. You can adjust the settings based on your specific distribution and requirements.
+This configuration should help you set up Exim on a macOS environment. You can adjust the settings based on your specific requirements and environment.

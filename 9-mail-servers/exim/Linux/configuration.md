@@ -1,6 +1,6 @@
-# Exim Configuration on Linux
+### Exim Configuration on Linux
 
-## Prerequisites
+#### Prerequisites
 1. Ensure you have administrative privileges on your Linux machine.
 2. Install Exim using the package manager for your Linux distribution:
    - For Debian/Ubuntu-based distributions:
@@ -13,7 +13,7 @@
      sudo yum install exim
      ```
 
-## Exim Configuration Directory
+#### Exim Configuration Directory
 Exim typically stores its configuration files in `/etc/exim4` or `/etc/exim` for both Debian/Ubuntu-based and Red Hat/CentOS-based distributions.
 
 #### Basic Configuration File (`exim4.conf`)
@@ -49,7 +49,7 @@ log_file_path = /var/log/exim4/mainlog
 log_selector = +all
 ``` 
 
-## Commands to Start, Stop, and Restart Exim
+#### Commands to Start, Stop, and Restart Exim
 
 - **Start Exim:**
   ```shell

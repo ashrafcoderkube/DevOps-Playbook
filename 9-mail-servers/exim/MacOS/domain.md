@@ -1,13 +1,13 @@
-### Domain Configuration for Exim Mail Server on Linux
+### Domain Configuration for Exim Mail Server on macOS
 
 ## Prerequisites
-- A Linux server with administrative (root) privileges.
+- A macOS server with administrative (root) privileges.
 - A valid domain name (e.g., example.com).
 - Exim installed on your system.
 - A valid SSL/TLS certificate (for SSL configuration).
 
 #### Non-SSL Configuration
-Edit the main Exim configuration file located at `/etc/exim4/exim4.conf` or `/etc/exim/exim.conf`.
+Edit the main Exim configuration file located at `/usr/local/etc/exim/exim.conf`.
 
 ```ini
 # Basic Exim configuration for mail delivery
@@ -28,7 +28,7 @@ delivery_mode = smtp
 acl_check_rcpt = acl_check_rcpt_local
 
 # Logging
-log_file_path = /var/log/exim4/mainlog
+log_file_path = /usr/local/var/log/exim/mainlog
 log_selector = +all
 ``` 
 
@@ -36,18 +36,18 @@ log_selector = +all
 
 To enable SSL/TLS encryption for Exim, modify the following configuration files.
 
-`/etc/exim4/exim4.conf` (or `/etc/exim/exim.conf`):
+`/usr/local/etc/exim/exim.conf`:
 
 ```ini
 # Enable TLS encryption
-tls_certificate = /etc/ssl/certs/exim.pem
-tls_privatekey = /etc/ssl/private/exim.key
+tls_certificate = /usr/local/etc/ssl/certs/exim.pem
+tls_privatekey = /usr/local/etc/ssl/private/exim.key
 tls_require_ciphers = HIGH
 ``` 
 
 Make sure the paths to the certificate and private key files are correct.
 
-`/etc/exim4/exim4.conf` (or `/etc/exim/exim.conf`):
+`/usr/local/etc/exim/exim.conf`:
 
 #### Enable secure SMTP:
 
@@ -59,7 +59,7 @@ tls_on_connect_ports = 465
 
 #### Virtual Alias Configuration
 
-Exim stores virtual alias mappings in the `/etc/exim4/virtual` file.
+Exim stores virtual alias mappings in the `/usr/local/etc/exim/virtual` file.
 
 ```ini
 # Virtual alias mappings
@@ -79,34 +79,34 @@ sudo exim -bV
 
 - **Start Exim:**
   ```shell
-  sudo systemctl start exim
+  sudo brew services start exim
   ```
 - **Stop Exim:**
   ```shell
-  sudo systemctl stop exim
+  sudo brew services stop exim
   ```
 - **Restart Exim:**
   ```shell
-  sudo systemctl restart exim
+  sudo brew services restart exim
   ```
 - **Reload Configuration:**
   ```shell
-  sudo systemctl reload exim
+  sudo kill -HUP $(pgrep exim)
   ```
 - **Check Status:**
   ```shell
-  sudo systemctl status exim
+  sudo brew services list | grep exim
   ```
 
 #### Log Files for Debugging
 
 - **View Mail Logs:**
   ```shell
-  sudo tail -f /var/log/exim4/mainlog
+  sudo tail -f /usr/local/var/log/exim/mainlog
   ```
 - **View Authentication Logs:**
   ```shell
-  sudo tail -f /var/log/exim4/rejectlog
+  sudo tail -f /usr/local/var/log/exim/rejectlog
   ```
 
 #### Test Email Sending and Receiving
@@ -118,3 +118,5 @@ To send a test email using the `mail` command:
   ```shell
   echo "Test message body" | mail -s "Test Subject" user@example.com
   ```
+
+  This configuration should help you set up Exim on a macOS environment. Adjust the settings according to your specific requirements and environment.
