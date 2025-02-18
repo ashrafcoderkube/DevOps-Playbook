@@ -1,6 +1,6 @@
 <img src="assets/image.png" alt="NGINX RTMP" width="250" >
 
-### **NGINX RTMP Module - Theory**
+### **NGINX RTMP Module**
 
 The **NGINX RTMP Module** is an extension to NGINX that provides support for RTMP (Real-Time Messaging Protocol) streaming. RTMP is a widely-used protocol for delivering video content to viewers in real-time, especially for live streaming services like Twitch, YouTube, and Facebook Live.
 
