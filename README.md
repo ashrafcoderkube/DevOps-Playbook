@@ -1,5 +1,3 @@
-Below is a detailed `README.md` template you can use for your repository:
-
 ---
 
 # DevOps Playbook
