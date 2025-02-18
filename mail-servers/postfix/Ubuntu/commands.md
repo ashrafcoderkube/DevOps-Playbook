@@ -1,58 +1,59 @@
-### Exim Server Commands for Linux
+### Postfix Server Commands for Ubuntu
 
-- **Start Exim:**
+- **Start Postfix:**
   ```shell
-  sudo systemctl start exim
+  sudo systemctl start postfix
   ```
-- **Stop Exim:**
+- **Stop Postfix:**
   ```shell
-  sudo systemctl stop exim
+  sudo systemctl stop postfix
   ```
-- **Restart Exim:**
+- **Restart Postfix:**
   ```shell
-  sudo systemctl restart exim
+  sudo systemctl restart postfix
   ```
 - **Reload Configuration:**
   ```shell
-  sudo systemctl reload exim
+  sudo systemctl reload postfix
   ```
 - **Check Status:**
   ```shell
-  sudo systemctl status exim
+  sudo systemctl status postfix
   ```
 - **Test Configuration:**
   ```shell
-  sudo exim -bV
+  postfix check
   ```
 - **Flush Mail Queue:**
   ```shell
-  sudo exim -qff
+  sudo postfix flush
   ```
 - **View Mail Queue:**
   ```shell
-  exim -bp
+  mailq
   ```
 - **Remove All Emails from Queue:**
   ```shell
-  sudo exim -Mrm <message-id>
+  sudo postsuper -d ALL
   ```
 - **Remove Deferred Emails from Queue:**
   ```shell
-  sudo exim -Mrm <message-id>
+  sudo postsuper -d ALL deferred
   ```
 - **Show Active Configuration Parameters:**
   ```shell
-  exim -bP
+  postconf -n
   ```
 - **Edit Main Configuration File:**
   ```shell
-  sudo nano /etc/exim/exim.conf
+  sudo nano /etc/postfix/main.cf
   ```
 - **Edit Master Configuration File:**
   ```shell
-  sudo nano /etc/exim/exim4.conf.template
+  sudo nano /etc/postfix/master.cf
   ```
-- **Restart exim After Configuration Change:**
+- **Restart Postfix After Configuration Change:**
   ```shell
-  sudo systemctl restart exim
+  sudo systemctl restart postfix
+  ```
   

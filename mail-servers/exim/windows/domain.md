@@ -1,13 +1,13 @@
-# Domain Configuration for Exim Mail Server on Ubuntu
+### Domain Configuration for Exim Mail Server on Windows
 
 ## Prerequisites
-- A Linux server with administrative (root) privileges.
+- A Windows server with administrative (root) privileges.
 - A valid domain name (e.g., example.com).
-- Exim installed on your system.
+- Cygwin installed on your system with Exim package.
 - A valid SSL/TLS certificate (for SSL configuration).
 
-## Non-SSL Configuration
-Edit the main Exim configuration file located at `/etc/exim4/exim4.conf`.
+#### Non-SSL Configuration
+Edit the main Exim configuration file located at `/etc/exim/exim.conf` within the Cygwin environment.
 
 ```ini
 # Basic Exim configuration for mail delivery
@@ -28,16 +28,15 @@ delivery_mode = smtp
 acl_check_rcpt = acl_check_rcpt_local
 
 # Logging
-log_file_path = /var/log/exim4/mainlog
+log_file_path = /var/log/exim/mainlog
 log_selector = +all
-
 ``` 
 
-## SSL Configuration
+#### SSL Configuration
 
 To enable SSL/TLS encryption for Exim, modify the following configuration files.
 
-`/etc/exim4/exim4.conf`:
+`/etc/exim/exim.conf` (within the Cygwin environment):
 
 ```ini
 # Enable TLS encryption
@@ -48,9 +47,11 @@ tls_require_ciphers = HIGH
 
 Make sure the paths to the certificate and private key files are correct.
 
-`/etc/exim4/exim4.conf`:
+`/etc/exim/exim.conf` (within the Cygwin environment):
 
-### Enable secure SMTP:
+Enable secure SMTP:
+
+#### Enable secure SMTP:
 
 ```ini
 # Enable secure SMTP
@@ -60,7 +61,7 @@ tls_on_connect_ports = 465
 
 #### Virtual Alias Configuration
 
-Exim stores virtual alias mappings in the `/etc/exim4/virtual` file.
+Exim stores virtual alias mappings in the `/etc/exim/virtual` file within the Cygwin environment.
 
 ```ini
 # Virtual alias mappings
@@ -70,52 +71,54 @@ support@example.com  user3
 @example.com         catchall
 ```
 
-After updating the `virtual` file, run the following command to apply the changes:
+After updating the `virtual` file, run the following command to apply the changes within the Cygwin environment:
 
 ```shell
-sudo exim -bV
+exim -bV
 ```
 
-#### Commands to Manage Exim
+#### Commands to Manage Exim (within the Cygwin environment)
 
 - **Start Exim:**
   ```shell
-  sudo systemctl start exim
+  cygrunsrv -S exim 
   ```
 - **Stop Exim:**
   ```shell
-  sudo systemctl stop exim
+  cygrunsrv -E exim
   ```
 - **Restart Exim:**
   ```shell
-  sudo systemctl restart exim
+  cygrunsrv -R exim
   ```
 - **Reload Configuration:**
   ```shell
-  sudo systemctl reload exim
+  exim -qff
   ```
 - **Check Status:**
   ```shell
-  sudo systemctl status exim
+  cygrunsrv -Q exim
   ```
 
 #### Log Files for Debugging
 
 - **View Mail Logs:**
   ```shell
-  sudo tail -f /var/log/exim4/mainlog
+  tail -f /var/log/exim/mainlog
   ```
 - **View Authentication Logs:**
   ```shell
-  sudo tail -f /var/log/exim4/rejectlog
+  tail -f /var/log/exim/rejectlog
   ```
 
 #### Test Email Sending and Receiving
 
 After configuring Exim, test the server by sending and receiving emails.
 
-To send a test email using the `mail` command:
+To send a test email using the `mail` command (within the Cygwin environment):
 
   ```shell
   echo "Test message body" | mail -s "Test Subject" user@example.com
   ```
+  
+This configuration should help you set up Exim on a Windows environment using Cygwin. Adjust the settings according to your specific requirements and environment.

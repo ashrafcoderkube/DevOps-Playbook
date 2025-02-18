@@ -1,4 +1,4 @@
-## Exim Server Commands for Ubuntu
+### Exim Server Commands for Ubuntu
 
 - **Start Exim:**
   ```shell
@@ -55,4 +55,4 @@
 - **Restart exim After Configuration Change:**
   ```shell
   sudo systemctl restart exim
-  
+  ```

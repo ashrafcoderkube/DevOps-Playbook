@@ -1,20 +1,18 @@
-# Exim Configuration on Ubuntu
+### Exim Configuration on Windows
 
-## Prerequisites
-1. Ensure you have administrative privileges on your Ubuntu machine.
-2. Install Exim using the package manager:
-     ```shell
-     sudo apt update
-    sudo apt install exim4
+#### Prerequisites
+1. Ensure you have administrative privileges on your Windows machine.
 
-     ```
+2. Install Cygwin with the required packages, including Exim.
 
-## Exim Configuration Directory
-Exim stores its configuration files in `/etc/exim4`.
+- Visit the Cygwin website.
+- Download the setup executable and install Cygwin.
+- During the installation, select the `Exim` package.
 
-Basic Configuration File (`exim4.conf`)
+#### Exim Configuration Directory
+Exim stores its configuration files in `/etc/exim` (within the Cygwin environment).
 
-Here’s a sample of what your `exim4.conf` might look like:
+Basic Configuration File (`exim.conf`) Here’s a sample of what your `exim.conf` might look like:
 
 ```ini
 # Network settings
@@ -41,36 +39,35 @@ tls_privatekey = /etc/ssl/private/exim.key
 tls_require_ciphers = HIGH
 
 # Logging
-log_file_path = /var/log/exim4/mainlog
+log_file_path = /var/log/exim/mainlog
 log_selector = +all
 ``` 
 
-## Commands to Start, Stop, and Restart Exim
+#### Commands to Start, Stop, and Restart Exim
 
 - **Start Exim:**
   ```shell
-  sudo systemctl start exim
+  cygrunsrv -S exim
   ```
 - **Stop Exim:**
   ```shell
-  sudo systemctl stop exim
+  cygrunsrv -E exim
   ```
 - **Restart Exim:**
   ```shell
-  sudo systemctl restart exim
+  cygrunsrv -R exim
   ```
 - **Reload Configuration:**
   ```shell
-  sudo systemctl reload exim
+  sexim -qff
   ```
 - **Check Exim:**
   ```shell
-  sudo systemctl status exim
+  cygrunsrv -Q exim
   ```
 
-## Virtual Alias Configuration (`virtual`)
-Exim stores virtual alias mappings in `/etc/exim4/virtual`.
-
+#### Virtual Alias Configuration (`virtual`)
+Exim stores virtual alias mappings in `/etc/exim/virtual` (within the Cygwin environment).
 ```ini
 # Virtual alias mappings
 admin@example.com    user1
@@ -81,12 +78,12 @@ support@example.com  user3
 
 Run the following command to update the virtual alias database:
 ```shell
-sudo exim -bV
+exim -bV
 ```
 
-#### Enabling SSL (`exim4.conf`)
+#### Enabling SSL (`exim.conf`)
 
-Modify `/etc/exim4/exim4.conf` to enable TLS support:
+Modify `/etc/exim/exim.conf` (within the Cygwin environment) to enable TLS support:
 
 ```ini
 # Enable TLS encryption
@@ -99,11 +96,11 @@ tls_require_ciphers = HIGH
 
 - **View Mail Logs:**
   ```shell
-  sudo tail -f /var/log/exim4/mainlog
+  tail -f /var/log/exim/mainlog
   ```
 - **View Authentication Logs:**
   ```shell
-  sudo tail -f /var/log/exim4/rejectlog
+  tail -f /var/log/exim/rejectlog
   ```
 
-This configuration should help you set up Exim on a Ubuntu environment. You can adjust the settings based on your specific distribution and requirements.
+This configuration should help you set up Exim on a Windows environment using Cygwin. Adjust the settings based on your specific requirements and environment.

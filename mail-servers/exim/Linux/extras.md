@@ -1,4 +1,4 @@
-# Exim Mail Server Configuration on Linux
+### Exim Mail Server Configuration on Linux
 
 ## Table of Contents
 1. [Overview](#overview)
@@ -69,14 +69,14 @@ CFILEMODE='644'
   sudo update-exim4.conf
 ```
 
-## Domain Configuration
+### Domain Configuration
 To set up domain-specific configurations, edit the `/etc/exim4/exim4.conf.template` file:
 
 ```ini
 domainlist local_domains = @ : example.com
 ```
 
-## SSL Configuration
+### SSL Configuration
 To enable TLS, modify `/etc/exim4/exim4.conf.template`:
 
 ```ini
@@ -85,7 +85,7 @@ tls_certificate = /etc/ssl/certs/exim.pem
 tls_privatekey = /etc/ssl/private/exim.key
 ```
 
-## Virtual Alias Configuration
+### Virtual Alias Configuration
 Create a virtual alias file at  `/etc/exim4/virtual` and add your mappings:
 
 ```ini
