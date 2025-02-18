@@ -1,3 +1,4 @@
+![GCP](assets/image.png)
 
 ## Google Cloud Functions
 
