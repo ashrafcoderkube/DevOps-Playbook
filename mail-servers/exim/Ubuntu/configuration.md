@@ -5,8 +5,7 @@
 2. Install Exim using the package manager:
      ```shell
      sudo apt update
-    sudo apt install exim4
-
+     sudo apt install exim4
      ```
 
 ### Exim Configuration Directory

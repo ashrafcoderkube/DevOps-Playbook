@@ -1,14 +1,14 @@
-### Domain Configuration for Postfix Mail Server on macOS
+### Domain Configuration for Postfix Mail Server on Windows
 
 ## Prerequisites
-- A macOS server with administrative (root) privileges.
+- A Windows  server with administrative (root) privileges.
 - A valid domain name (e.g., example.com).
-- Postfix installed on your system (Postfix comes pre-installed on macOS, but you may need to enable it).
+- Cygwin installed on your system with the Postfix package.
 - A valid SSL/TLS certificate (for SSL configuration).
 
 #### Non-SSL Configuration
 
-Edit the main Postfix configuration file located at `/etc/postfix/main.cf`.
+Edit the main Postfix configuration file located at `/etc/postfix/main.cf` (within the Cygwin environment).
 
 ```ini
 # Basic Postfix configuration for mail delivery
@@ -40,7 +40,7 @@ maillog_file = /var/log/mail.log
 
 To enable SSL/TLS encryption for Postfix, modify the following configuration files.
 
-`/etc/postfix/main.cf`:
+`/etc/postfix/main.cf`(within the Cygwin environment):
 
 ```ini
 # Enable TLS encryption
@@ -52,7 +52,7 @@ smtpd_tls_security_level = encrypt
 
 Make sure the paths to the certificate and private key files are correct.
 
-`/etc/postfix/master.cf`:
+`/etc/postfix/master.cf`(within the Cygwin environment):
 
 ```ini
 # Enable secure SMTP
@@ -73,54 +73,53 @@ support@example.com  user3
 @example.com         catchall
 ```
 
-Run the following command to update the virtual alias database:
+Run the following command to update the virtual alias database (within the Cygwin environment):
 ```shell
-sudo postmap /etc/postfix/virtual
+postmap /etc/postfix/virtual
 ```
 
 #### Commands to Manage Postfix
 
 - **Start Postfix:**
   ```shell
-  sudo launchctl load -w /Library/LaunchDaemons/org.postfix.master.plist
+  cygrunsrv -S postfix
   ```
 - **Stop Postfix:**
   ```shell
-  sudo launchctl unload -w /Library/LaunchDaemons/org.postfix.master.plist
+  cygrunsrv -E postfix
   ```
 - **Restart Postfix:**
   ```shell
-  sudo launchctl unload -w /Library/LaunchDaemons/org.postfix.master.plist
-  sudo launchctl load -w /Library/LaunchDaemons/org.postfix.master.plist
+  cygrunsrv -R postfix
   ```
 - **Reload Configuration:**
   ```shell
-  sudo postfix reload
+  postfix reload
   ```
 - **Check Status:**
   ```shell
-  sudo postfix status
+  cygrunsrv -Q postfix
   ```
 
 #### Log Files for Debugging
 
 - **View Mail Logs:**
   ```shell
-  sudo tail -f /var/log/mail.log
+  tail -f /var/log/mail.log
   ```
 - **View Authentication Logs:**
   ```shell
-  sudo tail -f /var/log/mail.err
+  tail -f /var/log/mail.err
   ```
 
 #### Test Email Sending and Receiving
 
 After configuring Postfix, test the server by sending and receiving emails.
 
-To send a test email using the `mail` command:
+To send a test email using the `mail` command (within the Cygwin environment):
 
   ```shell
   echo "Test message body" | mail -s "Test Subject" user@example.com
   ```
 
-This configuration should help you set up Postfix on a macOS environment. Adjust the settings according to your specific requirements and environment.
+This configuration should help you set up Postfix on a Windows environment using Cygwin. Adjust the settings according to your specific requirements and environment.
