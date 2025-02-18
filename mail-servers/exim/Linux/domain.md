@@ -1,4 +1,4 @@
-# Domain Configuration for Exim Mail Server on Linux
+### Domain Configuration for Exim Mail Server on Linux
 
 ## Prerequisites
 - A Linux server with administrative (root) privileges.
@@ -6,7 +6,7 @@
 - Exim installed on your system.
 - A valid SSL/TLS certificate (for SSL configuration).
 
-## Non-SSL Configuration
+#### Non-SSL Configuration
 Edit the main Exim configuration file located at `/etc/exim4/exim4.conf` or `/etc/exim/exim.conf`.
 
 ```ini
@@ -32,7 +32,7 @@ log_file_path = /var/log/exim4/mainlog
 log_selector = +all
 ``` 
 
-## SSL Configuration
+#### SSL Configuration
 
 To enable SSL/TLS encryption for Exim, modify the following configuration files.
 
@@ -49,7 +49,7 @@ Make sure the paths to the certificate and private key files are correct.
 
 `/etc/exim4/exim4.conf` (or `/etc/exim/exim.conf`):
 
-### Enable secure SMTP:
+#### Enable secure SMTP:
 
 ```ini
 # Enable secure SMTP
