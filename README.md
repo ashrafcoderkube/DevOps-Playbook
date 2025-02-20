@@ -1,4 +1,4 @@
-<img src="[LOGO.png](https://github.com/user-attachments/assets/bcd82489-82c9-4b2a-8909-11352d5d98ab" />
+<img src="https://github.com/user-attachments/assets/bcd82489-82c9-4b2a-8909-11352d5d98ab" />
 
 # DevOps Playbook
 
