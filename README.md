@@ -1,6 +1,11 @@
----
+<img src="LOGO.png" height="125"/>
 
 # DevOps Playbook
+
+<img  src="https://coderkube.com/wp-content/uploads/2022/01/LogoTM-1-1.png" height="125"/>
+
+by [Coderkube Technologies](https://www.coderkube.com).  
+
 
 Welcome to **DevOps Playbook** – your comprehensive open-source resource for all things DevOps. This repository aggregates detailed documentation, commands, configuration examples, and scripts for a wide array of server types and platforms, making it an indispensable guide for both beginners and seasoned professionals.
 
@@ -218,11 +223,13 @@ For more detailed contribution guidelines, please refer to [CONTRIBUTING.md](CON
 This project is licensed under the [MIT License](LICENSE). Feel free to use, modify, and distribute this project as per the license terms.
 
 ## Contact
+For questions, suggestions, or just to say hi, please open an issue or contact the repository maintainers.  
+Maintained by [Ashraf Chauhan](http://github.com/ashrafcoderkube)
 
-For questions, suggestions, or just to say hi, please open an issue or contact the repository maintainers directly via GitHub.
+Part of [Coderkube Technologies](https://coderkube.com/).
 
 ---
 
-Happy DevOps-ing!
+### Happy DevOps-ing 🚀!
 
 ---
