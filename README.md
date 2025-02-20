@@ -30,129 +30,44 @@ Welcome to **DevOps Playbook** – your comprehensive open-source resource for a
 
 Whether you’re setting up web servers, configuring database servers, or exploring the intricacies of serverless platforms, this repository is structured to serve as your go-to guide.
 
-## Repository Structure
-
-The repository is organized into the following main sections:
-
-```
-DevOps-Playbook/
-├── README.md                   # Project overview and instructions
-├── CONTRIBUTING.md             # Guidelines for contributions
-├── LICENSE                     # Open source license file
-├── docs/                       # General documentation (overview, setup, architecture, etc.)
-│   ├── overview.md
-│   ├── setup.md
-│   └── architecture.md
-├── modules/                    # All server/service modules organized by category
-│   ├── 1-web-servers/
-│   │   ├── apache/
-│   │   │   ├── commands.md
-│   │   │   ├── configuration.md
-│   │   │   └── docs.md
-│   │   ├── nginx/
-│   │   │   ├── commands.md
-│   │   │   ├── configuration.md
-│   │   │   └── docs.md
-│   │   └── ... (other web servers)
-│   ├── 2-application-servers/
-│   │   ├── nodejs/
-│   │   │   ├── commands.md
-│   │   │   ├── configuration.md
-│   │   │   └── docs.md
-│   │   └── ... (other application servers)
-│   └── ... (other module categories)
-├── scripts/                     # Utility scripts (deployment, backups, etc.)
-│   ├── deploy.sh
-│   └── backup.sh
-└── examples/                    # Sample setups and demo configurations
-    └── sample-deployment/
-         ├── docker-compose.yml
-         └── README.md
-```
-
-This structure ensures:
-- **Modularity:** Each module is isolated, allowing for easy updates and scalability.
-- **Clarity:** Clear separation between documentation, scripts, and examples.
-- **Collaboration:** Easy navigation for contributors to find and enhance relevant sections.
-
 ## Modules
 
 The repository covers a variety of modules, including but not limited to:
 
-1. **Web Servers:**  
-   - Apache HTTP Server  
-   - Nginx  
-   - Caddy  
-   - LiteSpeed  
-   - IIS (Internet Information Services)  
+Here's how you can format the information into a 3x4 table:
 
-2. **Application Servers:**  
-   - Node.js  
-   - Django  
-   - Spring Boot  
-   - Flask  
-   - Ruby on Rails  
+---
 
-3. **Database Servers:**  
-   - MySQL  
-   - PostgreSQL  
-   - MongoDB  
-   - Redis  
-   - Elasticsearch  
+## Modules
 
-4. **Proxy Servers:**  
-   - Squid Proxy  
-   - HAProxy  
-   - Traefik  
-   - Varnish Cache  
+| **Web Servers**                        | **Application Servers**             |        **Database Servers**          | **Proxy Servers**                   |
+|----------------------------------------|-------------------------------------|------------------------------------  |-------------------------------------|
+| Apache HTTP Server                     | Node.js                             | MySQL                                | Squid Proxy                         |
+| Nginx                                  | Django                              | PostgreSQL                           | HAProxy                             |
+| Caddy                                  | Spring Boot                         | MongoDB                              | Traefik                             |
+| LiteSpeed                              | Flask                               | Redis                                | Varnish Cache                       |
+| IIS (Internet Information Services)    | Ruby on Rails                       | Elasticsearch                        |                                     |
 
-5. **Caching Servers:**  
-   - Redis  
-   - Memcached  
+<br>
 
-6. **Load Balancers:**  
-   - Nginx  
-   - HAProxy  
-   - AWS Elastic Load Balancer (ELB)  
-   - Traefik  
 
-7. **File and Media Servers:**  
-   - AWS S3  
-   - MinIO  
-   - FTP Servers  
-   - Plex  
+| **Caching Servers**                    | **Load Balancers**                  | **File and Media Servers**           | **Streaming Servers**               |
+|----------------------------------------|-------------------------------------|------------------------------------- |-------------------------------------|
+| Redis                                  | Nginx                               | AWS S3                               | Wowza Streaming Engine              |
+| Memcached                              | HAProxy                             | MinIO                                | Nginx RTMP Module                   |
+|                                        | AWS Elastic Load Balancer (ELB)     | FTP Servers                          | FFmpeg-based live streaming servers |
+|                                        | Traefik                             | Plex                                 | Red5 Pro                            |
 
-8. **Streaming Servers:**  
-   - Wowza Streaming Engine  
-   - Nginx RTMP Module  
-   - FFmpeg-based live streaming servers  
-   - Red5 Pro  
+<br>
 
-9. **Mail Servers:**  
-   - Postfix  
-   - Exim  
-   - Sendmail  
-   - Microsoft Exchange Server  
+| **Mail Servers**                       | **API Gateway & Service Mesh**      | **Message Brokers & Event Streaming** | **Serverless Platforms**            |
+|----------------------------------------|-------------------------------------|-------------------------------------  |-------------------------------------|
+| Postfix                                | Kong                                | RabbitMQ                              | AWS Lambda                          |
+| Exim                                   | AWS API Gateway                     | Apache Kafka                          | Google Cloud Functions              |
+| Sendmail                               | Istio                               | NATS                                  | Azure Functions                     |
+| Microsoft Exchange Server              | Envoy Proxy                         | ActiveMQ                              | Cloudflare Workers                  |
 
-10. **API Gateway & Service Mesh:**  
-    - Kong  
-    - AWS API Gateway  
-    - Istio  
-    - Envoy Proxy  
-
-11. **Message Brokers & Event Streaming:**  
-    - RabbitMQ  
-    - Apache Kafka  
-    - NATS  
-    - ActiveMQ  
-
-12. **Serverless Platforms:**  
-    - AWS Lambda  
-    - Google Cloud Functions  
-    - Azure Functions  
-    - Cloudflare Workers  
-
-Each module includes detailed guides, commands, and configurations that will help you set up and optimize the respective services.
+---
 
 ## Getting Started
 
@@ -164,63 +79,13 @@ To get started with **DevOps Playbook**, follow these steps:
    git clone https://github.com/yourusername/DevOps-Playbook.git
    cd DevOps-Playbook
    ```
+## Use the module-specific `commands.md` and `configuration.md` files for quick setup and troubleshooting.
 
-2. **Explore the Documentation:**
-
-   - Start with the [docs/overview.md](docs/overview.md) to understand the repository's layout and purpose.
-   - Review the module-specific guides under the [modules/](modules/) directory.
-
-3. **Run Sample Scripts:**
-
-   - Navigate to the [scripts/](scripts/) folder and check out the available automation scripts.
-   - Explore sample deployments in the [examples/](examples/) directory.
-
-## Usage
-
-- **Reference Commands & Configurations:**  
-  Use the module-specific `commands.md` and `configuration.md` files for quick setup and troubleshooting.
-
-- **Deploy and Test:**  
-  Leverage the scripts in the [scripts/](scripts/) directory to automate deployments and backups.
-
-- **Learn and Experiment:**  
-  Follow the documentation in the [docs/](docs/) folder for best practices and deeper insights into the infrastructure setup.
-
-## Contributing
-
-We welcome contributions! As an open-source project, **DevOps Playbook** thrives on community involvement. Whether you’re fixing a typo, adding a new module, or suggesting enhancements, your contributions are highly appreciated.
-
-**How to Contribute:**
-
-1. **Fork the Repository:**  
-   Click on the fork button at the top right of the repository page.
-
-2. **Create a Feature Branch:**
-
-   ```bash
-   git checkout -b feature/YourFeatureName
-   ```
-
-3. **Commit Your Changes:**
-
-   ```bash
-   git commit -m "Add details for [feature/module]"
-   ```
-
-4. **Push to Your Fork:**
-
-   ```bash
-   git push origin feature/YourFeatureName
-   ```
-
-5. **Open a Pull Request:**  
-   Submit a pull request to the main branch of this repository. Please make sure to include a detailed description of your changes.
-
-For more detailed contribution guidelines, please refer to [CONTRIBUTING.md](CONTRIBUTING.md).
+### For contribution guidelines, please refer to [CONTRIBUTING.md](CONTRIBUTING.md).
 
 ## License
 
-This project is licensed under the [MIT License](LICENSE). Feel free to use, modify, and distribute this project as per the license terms.
+This project is licensed under the Apache General public license. Feel free to use, modify, and distribute this project as per the license terms.
 
 ## Contact
 For questions, suggestions, or just to say hi, please open an issue or contact the repository maintainers.  
