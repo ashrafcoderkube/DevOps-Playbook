@@ -59,7 +59,6 @@ Make sure the paths to the certificate and private key files are correct.
 smtps     inet  n       -       n       -       -       smtpd
   -o smtpd_tls_wrappermode=yes
   -o smtpd_sasl_auth_enable=yes
-
 ```
 
 #### Virtual Alias Configuration

@@ -1,4 +1,4 @@
-### Postfix Mail Server Configuration on Ubuntu
+### Postfix Mail Server Configuration on macOS
 
 ## Table of Contents
 1. [Overview](#overview)
@@ -12,25 +12,16 @@
 9. [Log Files for Debugging](#log-files-for-debugging)
 
 ## Overview
-Postfix is a widely used open-source Mail Transfer Agent (MTA) that routes and delivers emails. It is known for its simplicity, security, and flexibility. This document provides detailed steps to configure Postfix on an Ubuntu environment.
+Postfix is a widely used open-source Mail Transfer Agent (MTA) that routes and delivers emails. It is known for its simplicity, security, and flexibility. This document provides detailed steps to configure Postfix on a macOS environment.
 
 ## Prerequisites
 1. Administrative privileges on your Ubuntu machine.
-2. Install Postfix using the package manager:
-     ```shell
-     sudo apt update
-     sudo apt install postfix
-     ```
+2. Postfix is pre-installed on macOS, but you may need to enable it.
 
 ## Installation Steps
-1. **Update Package Index:**
+1. **Enable Postfix:** Postfix comes pre-installed on macOS, but you need to start the service.
      ```shell
-     sudo apt update
-     ```
-
-2. **Install Postfix:**
-     ```shell
-     sudo apt install postfix
+     sudo launchctl load -w /Library/LaunchDaemons/org.postfix.master.plist
      ```
 
 ## Basic Configuration
@@ -92,23 +83,24 @@ sudo postmap /etc/postfix/virtual
 ## Useful Commands
 - **Start Postfix:**
   ```shell
-  sudo systemctl start postfix
+  sudo launchctl load -w /Library/LaunchDaemons/org.postfix.master.plist
   ```
 - **Stop Postfix:**
   ```shell
-  sudo systemctl stop postfix
+  sudo launchctl unload -w /Library/LaunchDaemons/org.postfix.master.plist
   ```
 - **Restart Postfix:**
   ```shell
-  sudo systemctl restart postfix
+  sudo launchctl unload -w /Library/LaunchDaemons/org.postfix.master.plist
+  sudo launchctl load -w /Library/LaunchDaemons/org.postfix.master.plist
   ```
 - **Reload Configuration:**
   ```shell
-  sudo systemctl reload postfix
+  sudo postfix reload
   ```
 - **Check Status:**
   ```shell
-  sudo systemctl status postfix
+  sudo postfix status
   ```
 
 ## Log Files for Debugging
@@ -121,4 +113,4 @@ sudo postmap /etc/postfix/virtual
   sudo tail -f /var/log/mail.err
   ```
 
-This configuration document provides a structured approach for setting up Postfix Mail Server on Ubuntu. Adjust the settings as per your specific requirements and environment.
+This configuration document provides a structured approach for setting up Postfix Mail Server on macOS. Adjust the settings as per your specific requirements and environment.

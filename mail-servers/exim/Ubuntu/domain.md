@@ -30,7 +30,6 @@ acl_check_rcpt = acl_check_rcpt_local
 # Logging
 log_file_path = /var/log/exim4/mainlog
 log_selector = +all
-
 ``` 
 
 #### SSL Configuration

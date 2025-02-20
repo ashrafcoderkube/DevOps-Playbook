@@ -135,7 +135,7 @@ system_aliases:
   ```
 - **View Panic Logs:**
   ```shell
-sudo tail -f /var/log/exim4/paniclog
+  sudo tail -f /var/log/exim4/paniclog
   ```
 
 This configuration document provides a structured approach for setting up Postfix Mail Server on Linux. Adjust the settings as per your specific requirements and environment.

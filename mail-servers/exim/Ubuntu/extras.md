@@ -46,13 +46,12 @@ dc_minimaldns='false'
 dc_relay_nets=''
 dc_smarthost=''
 CFILEMODE='644'
-
 ```
 
 ### After modifying the configuration file, run the following command to apply the changes:
 
 ```Shell
-  sudo update-exim4.conf
+sudo update-exim4.conf
 ```
 
 ## Domain Configuration
@@ -69,7 +68,6 @@ To enable TLS, modify `/etc/exim4/exim4.conf.template`:
 tls_advertise_hosts = *
 tls_certificate = /etc/ssl/certs/exim.pem
 tls_privatekey = /etc/ssl/private/exim.key
-
 ```
 
 ## Virtual Alias Configuration
@@ -80,7 +78,6 @@ admin@example.com: user1
 info@example.com: user2
 support@example.com: user3
 @example.com: catchall
-
 ```
 
 Add the following line to `/etc/exim4/exim4.conf.template` to use the virtual alias file:
@@ -88,7 +85,6 @@ Add the following line to `/etc/exim4/exim4.conf.template` to use the virtual al
 system_aliases:
   driver = redirect
   data = ${lookup{$local_part}lsearch{/etc/exim4/virtual}}
-
 ```
 
 ## Useful Commands
