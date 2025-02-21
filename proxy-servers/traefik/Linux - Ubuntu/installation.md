@@ -1,4 +1,4 @@
-## Traefik Proxy Server Installation & Usage on Linux
+## Traefik Proxy Server Installation & Usage on Linux & Ubuntu
 
 ### **System Requirements**
 

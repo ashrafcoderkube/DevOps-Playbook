@@ -1,6 +1,6 @@
-## Redis Caching Server Installation & Usage on Linux & Ubuntu
+# Nginx Load Balancer Installation & Usage on Linux
 
-### **System Requirements**
+## **System Requirements**
 
 - **Operating System**: Ubuntu, Debian, CentOS, RHEL, Fedora
 - **Processor**: 64-bit, 1.4 GHz or higher
@@ -8,42 +8,36 @@
 - **Disk Space**: Minimum 2 GB of free disk space
 - **Network**: Stable internet connection
 
----
 
 ## **Installation Steps**
 
 ### **1. Update System Packages**
-Before installing Redis, update your system:
+Before installing Nginx, update your system:
 
 ```bash
 sudo apt update && sudo apt upgrade -y  # Ubuntu/Debian
 sudo yum update -y  # CentOS/RHEL
 ```
 
-### **2. Install Redis**
+### **2. Install Nginx**
 #### **On Ubuntu/Debian-based Systems**
 ```bash
-sudo apt install -y redis-server
+sudo apt install -y nginx
 ```
 
 #### **On CentOS/RHEL-based Systems**
 ```bash
-sudo yum install -y redis
+sudo yum install -y nginx
 ```
 
-### **3. Start and Enable Redis Service**
+### **3. Start and Enable Nginx Service**
 ```bash
-sudo systemctl start redis
-sudo systemctl enable redis
+sudo systemctl start nginx
+sudo systemctl enable nginx
 ```
 
 ### **4. Verify Installation**
-Check if Redis is running:
+Check if Nginx is running:
 ```bash
-redis-cli ping
+sudo systemctl status nginx
 ```
-If Redis is working correctly, it should return:
-```
-PONG
-```
-

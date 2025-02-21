@@ -1,4 +1,4 @@
-## Sendmail Mail Server on Linux
+## Sendmail Mail Server on Linux & Ubuntu
 
 ### System Requirements
 - **Linux Distribution:** Ubuntu, CentOS, Debian, RHEL, or other Unix-like OS
