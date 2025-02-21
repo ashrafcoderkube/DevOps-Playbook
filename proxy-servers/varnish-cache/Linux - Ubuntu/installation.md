@@ -1,4 +1,4 @@
-## Varnish Cache Proxy Server Installation & Usage on Linux
+## Varnish Cache Proxy Server Installation & Usage on Linux & Ubuntu
 
 ### **System Requirements**
 

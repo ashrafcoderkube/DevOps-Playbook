@@ -1,4 +1,4 @@
-# Varnish Cache Server Configuration on Linux
+# Varnish Cache Server Configuration on Linux & Ubuntu
 
 ## **Configuration**
 

@@ -1,4 +1,4 @@
-## Redis Caching Server Installation & Usage on Linux & Ubuntu
+## HAProxy Load Balancer Installation & Usage on Linux
 
 ### **System Requirements**
 
@@ -8,42 +8,36 @@
 - **Disk Space**: Minimum 2 GB of free disk space
 - **Network**: Stable internet connection
 
----
 
 ## **Installation Steps**
 
 ### **1. Update System Packages**
-Before installing Redis, update your system:
+Before installing HAProxy, update your system:
 
 ```bash
 sudo apt update && sudo apt upgrade -y  # Ubuntu/Debian
 sudo yum update -y  # CentOS/RHEL
 ```
 
-### **2. Install Redis**
+### **2. Install HAProxy**
 #### **On Ubuntu/Debian-based Systems**
 ```bash
-sudo apt install -y redis-server
+sudo apt install -y haproxy
 ```
 
 #### **On CentOS/RHEL-based Systems**
 ```bash
-sudo yum install -y redis
+sudo yum install -y haproxy
 ```
 
-### **3. Start and Enable Redis Service**
+### **3. Start and Enable HAProxy Service**
 ```bash
-sudo systemctl start redis
-sudo systemctl enable redis
+sudo systemctl start haproxy
+sudo systemctl enable haproxy
 ```
 
 ### **4. Verify Installation**
-Check if Redis is running:
+Check if HAProxy is running:
 ```bash
-redis-cli ping
+sudo systemctl status haproxy
 ```
-If Redis is working correctly, it should return:
-```
-PONG
-```
-
