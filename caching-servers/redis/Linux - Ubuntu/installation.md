@@ -1,4 +1,4 @@
-## Redis Caching Server Installation & Usage on Linux
+## Redis Caching Server Installation & Usage on Linux & Ubuntu
 
 ### **System Requirements**
 
